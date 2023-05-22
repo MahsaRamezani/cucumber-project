@@ -2,11 +2,11 @@ package com.example.cucumberTest.stepDefinitions;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.BeforeStep;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.springframework.boot.test.web.server.LocalServerPort;
 
 /**
  * @author m_ramezani
@@ -16,13 +16,32 @@ public class AuthenticationStepDefinitions {
   @Before
   public void setup(Scenario scenario) {
     System.out.println("============================================================");
+    System.out.println("Before hook");
     System.out.println("scenario name :: " + scenario.getName());
     System.out.println("scenario tags :: " + scenario.getSourceTagNames());
-    System.out.println("::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::");
+    System.out.println("------------------------------------------------------------");
+  }
+
+  @Before(order = 1)
+  public void setup2(Scenario scenario) {
+    System.out.println("============================================================");
+    System.out.println("Before hook2");
+    System.out.println("scenario name :: " + scenario.getName());
+    System.out.println("scenario tags :: " + scenario.getSourceTagNames());
+    System.out.println("------------------------------------------------------------");
+  }
+
+  @BeforeStep
+  public void setupStep() {
+    System.out.println("============================================================");
+    System.out.println("Before Step");
+    System.out.println("------------------------------------------------------------");
   }
 
   @After
   public void teardown() {
+    System.out.println("------------------------------------------------------------");
+    System.out.println("After hook");
     System.out.println("============================================================");
   }
 
@@ -63,12 +82,12 @@ public class AuthenticationStepDefinitions {
     System.out.println("here we are with Baam logo B<>A<>A<>M");
   }
 
-  @When("the user enters user id as {string}")
-  public void the_user_enters_account_name_as(String username) {
-    System.out.println("The username is :: " + username);
+  @When("the user clicks on Forgot Username")
+  public void the_user_clicks_on_forgot_username() {
+    System.out.println("here we are with Baam logo B<>A<>A<>M");
   }
-  @When("enters password as {string}")
-  public void enters_password_as(String password) {
-    System.out.println("The password is (don't look at me) :: " + password);
+  @Then("the user should be navigated to the first page of forgot username flow")
+  public void the_user_should_be_navigated_to_the_first_page_of_forgot_username_flow() {
+    System.out.println("here we are with Baam logo B<>A<>A<>M");
   }
 }
