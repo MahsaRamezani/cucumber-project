@@ -27,9 +27,27 @@ public class AuthenticationStepDefinitions {
   public void hits_submit() {
     System.out.println("Clicked on submit");
   }
-  @Then("the user should be logged in successfull")
-  public void the_user_should_be_logged_in_successfull() {
+  @Then("the user should be logged in successfully")
+  public void the_user_should_be_logged_in_successfully() {
     System.out.println("the user logged in");
+  }
+
+  @When("the user enters invalid credentials")
+  public void the_user_enters_invalid_credentials() {
+    System.out.println("Entered invalid credentials");
+  }
+  @Then("an invalid credentials error message should be displayed to the user")
+  public void an_invalid_credentials_error_message_should_be_displayed_to_the_user() {
+    System.out.println("error displayed:::Username or password invalid");
+  }
+  @Then("login should be unsuccessful")
+  public void login_should_be_unsuccessful() {
+    System.out.println("the user cannot logged in");
+  }
+
+  @Then("the Baam Logo should be present in the login form")
+  public void the_baam_logo_should_be_present_in_the_login_form() {
+    System.out.println("here we are with Baam logo B<>A<>A<>M");
   }
 
 }

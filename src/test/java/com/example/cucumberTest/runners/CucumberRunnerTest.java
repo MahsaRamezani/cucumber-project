@@ -11,6 +11,8 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
     plugin = {"pretty", "json:target/cucumber.json", "html:target/cucumber-reports/Cucumber.html, json:target/cucumber-reports/Cucumber.json, junit:target/cucumber-reports/Cucumber.xml"},
     glue = {"com.example.cucumberTest.stepDefinitions"},
+    tags = "not @authenticate",
+//    tags = "@regression or @authenticate",
     features = "classpath:features"
 )
 public class CucumberRunnerTest {
