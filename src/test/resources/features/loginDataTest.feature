@@ -8,8 +8,12 @@ Feature: Baam Login with multiple data
     Then the user should be logged in successfully
 
     Examples:
-    | user      | password |
-    | BaamUser1 | abc123   |
-    | BaamUser2 | zxy123   |
-    | BaamUser3 | abc123   |
-    | BaamUser4 | zxy123   |
+      | user      | password |
+      | BaamUser1 | abc123   |
+      | BaamUser2 | zxy123   |
+
+    @bug
+    Examples:
+      | user      | password |
+      | BaamUser3 | abc123   |
+      | BaamUser4 | zxy123   |
