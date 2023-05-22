@@ -1,5 +1,8 @@
 package com.example.cucumberTest.stepDefinitions;
 
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -10,8 +13,18 @@ import org.springframework.boot.test.web.server.LocalServerPort;
  */
 public class AuthenticationStepDefinitions {
 
-  @LocalServerPort
-  private int port;
+  @Before
+  public void setup(Scenario scenario) {
+    System.out.println("============================================================");
+    System.out.println("scenario name :: " + scenario.getName());
+    System.out.println("scenario tags :: " + scenario.getSourceTagNames());
+    System.out.println("::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::");
+  }
+
+  @After
+  public void teardown() {
+    System.out.println("============================================================");
+  }
 
   @Given("the user is on the login page")
   public void the_user_is_on_the_login_page() {
@@ -50,4 +63,12 @@ public class AuthenticationStepDefinitions {
     System.out.println("here we are with Baam logo B<>A<>A<>M");
   }
 
+  @When("the user enters user id as {string}")
+  public void the_user_enters_account_name_as(String username) {
+    System.out.println("The username is :: " + username);
+  }
+  @When("enters password as {string}")
+  public void enters_password_as(String password) {
+    System.out.println("The password is (don't look at me) :: " + password);
+  }
 }
