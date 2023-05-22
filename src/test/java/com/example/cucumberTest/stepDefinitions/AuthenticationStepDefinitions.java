@@ -1,9 +1,9 @@
 package com.example.cucumberTest.stepDefinitions;
 
 import io.cucumber.java.After;
+import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.BeforeStep;
-import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -14,35 +14,29 @@ import io.cucumber.java.en.When;
 public class AuthenticationStepDefinitions {
 
   @Before
-  public void setup(Scenario scenario) {
+  public void setup() {
     System.out.println("============================================================");
     System.out.println("Before hook");
-    System.out.println("scenario name :: " + scenario.getName());
-    System.out.println("scenario tags :: " + scenario.getSourceTagNames());
     System.out.println("------------------------------------------------------------");
   }
 
-  @Before(order = 1)
-  public void setup2(Scenario scenario) {
-    System.out.println("============================================================");
-    System.out.println("Before hook2");
-    System.out.println("scenario name :: " + scenario.getName());
-    System.out.println("scenario tags :: " + scenario.getSourceTagNames());
-    System.out.println("------------------------------------------------------------");
-  }
-
-  @BeforeStep
-  public void setupStep() {
-    System.out.println("============================================================");
+  @BeforeStep("@ui")
+  public void stepSetup() {
+    System.out.println("************************************************************");
     System.out.println("Before Step");
-    System.out.println("------------------------------------------------------------");
   }
 
   @After
   public void teardown() {
-    System.out.println("------------------------------------------------------------");
-    System.out.println("After hook");
     System.out.println("============================================================");
+    System.out.println("After hook");
+    System.out.println("------------------------------------------------------------");
+  }
+
+  @AfterStep("@ui")
+  public void stepTeardown() {
+    System.out.println("After Step");
+    System.out.println("************************************************************");
   }
 
   @Given("the user is on the login page")
