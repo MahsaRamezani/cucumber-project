@@ -1,9 +1,8 @@
-package com.example.cucumberTest;
+package com.example.cucumberTest.runners;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
-import org.springframework.test.context.ActiveProfiles;
 
 /**
  * @author m_ramezani
